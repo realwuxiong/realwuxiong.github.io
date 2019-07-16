@@ -1,10 +1,697 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>mysql数据库创建流水号 | Hexo</title>
+  <meta name="description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta name="keywords" content="Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库创建流水号">
+<meta property="og:url" content="http://yoursite.com/blog/2019/07/10/Django教程/index.html">
+<meta property="og:site_name" content="吴雄的博客">
+<meta property="og:description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://moustache.oss-cn-beijing.aliyuncs.com/home.png">
+<meta property="og:updated_time" content="2019-07-16T03:07:47.759Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql数据库创建流水号">
+<meta name="twitter:description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta name="twitter:image" content="https://moustache.oss-cn-beijing.aliyuncs.com/home.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/blog/2019/07/10/Django教程/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="吴雄的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
 
-block content
-  article#post
-    a.article-title= page.title || 'No Title'
-    time.article-date #[i(class="fa fa-calendar" aria-hidden="true")] !{date(page.date, config.date_format)}
-    != page.content
-  include includes/pagination.pug
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的小程序/">我的小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/考研历程/">考研历程</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/">QQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器人/">机器人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛概/">毛概</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Django/" style="font-size: 13px;">Django</a> <a href="/tags/QQ/" style="font-size: 13px;">QQ</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/学习/" style="font-size: 13px;">学习</a> <a href="/tags/机器人/" style="font-size: 13px;">机器人</a> <a href="/tags/毛概/" style="font-size: 13px;">毛概</a> <a href="/tags/考研/" style="font-size: 13px;">考研</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2019/07/16/hello-world/" class="title">Hello World1</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-16T12:28:22.740Z" itemprop="datePublished">2019-07-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Django/">Django</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2019/07/10/Django教程/" class="title">mysql数据库创建流水号</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-10T03:43:34.000Z" itemprop="datePublished">2019-07-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/小程序/">小程序</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2018/08/01/qq聊天机器人/" class="title">qq聊天机器人</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-08-01T03:43:34.000Z" itemprop="datePublished">2018-08-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2018/07/02/mysql创建流水号/" class="title">mysql数据库创建流水号</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-02T03:43:34.000Z" itemprop="datePublished">2018-07-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/blog/2018/07/02/mysqlini文件详解/" class="title">mysql数据库my.ini配置文件中文详解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-02T03:43:34.000Z" itemprop="datePublished">2018-07-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Django文档"><span class="toc-number">1.</span> <span class="toc-text">Django文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间2019-7-10"><span class="toc-number">1.1.</span> <span class="toc-text">时间2019-7-10</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Django版本2-2-3-python版本3-6-mysql版本5-7（低版本mysql可能会出现莫名其妙的错误）"><span class="toc-number">1.1.1.</span> <span class="toc-text">Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库的设计"><span class="toc-number">1.1.2.</span> <span class="toc-text">数据库的设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建app"><span class="toc-number">1.1.3.</span> <span class="toc-text">创建app</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7月11日"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">7月11日</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7月12日"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">7月12日</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年7月13日-完成博客页面样式调试"><span class="toc-number">1.1.4.</span> <span class="toc-text">2019年7月13日 完成博客页面样式调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年7月15日发布Django项目到阿里云服务器"><span class="toc-number">1.1.5.</span> <span class="toc-text">2019年7月15日发布Django项目到阿里云服务器</span></a></li></ol></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Django教程" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql数据库创建流水号
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2019/07/10/Django教程/" class="article-date">
+	  <time datetime="2019-07-10T03:43:34.000Z" itemprop="datePublished">2019-07-10</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Django/">Django</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2019/07/10/Django教程/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Django文档"><a href="#Django文档" class="headerlink" title="Django文档"></a>Django文档</h1><h2 id="时间2019-7-10"><a href="#时间2019-7-10" class="headerlink" title="时间2019-7-10"></a>时间2019-7-10</h2><h3 id="Django版本2-2-3-python版本3-6-mysql版本5-7（低版本mysql可能会出现莫名其妙的错误）"><a href="#Django版本2-2-3-python版本3-6-mysql版本5-7（低版本mysql可能会出现莫名其妙的错误）" class="headerlink" title="Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）"></a>Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）</h3><hr>
+<ol>
+<li>创建项目</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject mysite</span><br></pre></td></tr></table></figure>
+
+<p>其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。</p>
+<p><img src="https://moustache.oss-cn-beijing.aliyuncs.com/home.png" alt="image"></p>
+<h3 id="数据库的设计"><a href="#数据库的设计" class="headerlink" title="数据库的设计"></a>数据库的设计</h3><hr>
+<p>首页</p>
+<p>1轮播图表 （添加的时间 按照添加时间优先显示）</p>
+<p>2博客文章 （文章之中有标签 分类 阅读量 发布时间 评论 和点赞数 点击量 推荐指数 置顶功能 作者 最近修改时间 markdown的文件名）</p>
+<p>3评论表</p>
+<p>4博主简介表</p>
+<p>5其他功能</p>
+<hr>
+<h3 id="创建app"><a href="#创建app" class="headerlink" title="创建app"></a>创建app</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. python manage.py startapp home </span><br><span class="line">2. python manage.py startapp arhive</span><br><span class="line">等等</span><br></pre></td></tr></table></figure>
+
+<p>以home这个app为例创建model.py文件</p>
+<h4 id="7月11日"><a href="#7月11日" class="headerlink" title="7月11日"></a>7月11日</h4><p>基本完成数据库和显示的问题</p>
+<h4 id="7月12日"><a href="#7月12日" class="headerlink" title="7月12日"></a>7月12日</h4><p>网页显示markdown</p>
+<ol>
+<li>安装markdown插件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install markdown</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>然后需要在models.py中对 阿里云对象存储的md文件进行解析</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line">from django.utils.html import mark_safe  # 将字符串标记为安全进行输出</span><br><span class="line">from markdown import markdown  # 导入 markdown 插件,将markdown格式转化为html</span><br><span class="line">import codecs</span><br><span class="line">from urllib import request</span><br><span class="line"></span><br><span class="line"> def markdownTohtml(self):</span><br><span class="line">        # 读取 markdown 文本</span><br><span class="line">        # input_file = codecs.open(self.markdown_url, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;)</span><br><span class="line">        text = request.urlopen(self.markdown_url).read().decode(&apos;utf8&apos;)  # 1 读取数据串</span><br><span class="line">        # text = input_file.read()</span><br><span class="line">        return mark_safe(markdown(text,extensions=[</span><br><span class="line">                                      &apos;markdown.extensions.extra&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.codehilite&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.toc&apos;,</span><br><span class="line">                                  ]))</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>html页面显示</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &#123;&#123; blogInfo.markdownTohtml&#125;&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>python+markdown+pygments代码块高亮<br>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pygments</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>运行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pygmentize -S default -f html -a .codehilite &gt; code.css</span><br></pre></td></tr></table></figure>
+
+<p>在文件夹下会发现生成了code.css文件，将这个css文件加入到你的static文件夹下csss里。在需要高亮的html文件里面导入刚刚生成的css文件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../static/css/code.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可去Github项目官方网址下载任意一css文件,记得文件内样式名开头都为 .codehilite, 如果不是修改过来。<a href="https://github.com/richleland/pygments-css" target="_blank" rel="noopener">pygments-css</a></p>
+<p>注意代码中需要加扩展（markDown转化为HTML的代码中加入)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mark_safe(markdown(text,extensions=[</span><br><span class="line">                                      &apos;markdown.extensions.extra&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.codehilite&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.toc&apos;,</span><br><span class="line">                                  ]))</span><br></pre></td></tr></table></figure>
+
+<p>其实你<a href="https://github.com/richleland/pygments-css" target="_blank" rel="noopener">进入</a>可以看到有很多的样式文件<br>这样可以进一步理解代码：pygmentize -S default -f html -a .codehilite &gt; code.css<br>其实这个就是选择的default的那个文件 比如我选择autumn.css 那么代码就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pygmentize -S autumn -f html -a .codehilite &gt; code.css</span><br></pre></td></tr></table></figure>
+
+<h3 id="2019年7月13日-完成博客页面样式调试"><a href="#2019年7月13日-完成博客页面样式调试" class="headerlink" title="2019年7月13日 完成博客页面样式调试"></a>2019年7月13日 完成博客页面样式调试</h3><ol>
+<li>知道了li ul标签 inline inline-block block的区别</li>
+<li>css的选择器等等</li>
+<li>发布项目到阿里云服务器</li>
+</ol>
+<h3 id="2019年7月15日发布Django项目到阿里云服务器"><a href="#2019年7月15日发布Django项目到阿里云服务器" class="headerlink" title="2019年7月15日发布Django项目到阿里云服务器"></a>2019年7月15日发布Django项目到阿里云服务器</h3><ol>
+<li>我用的宝塔面板安装了Nginx </li>
+<li>安装uwsgi<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>安装 supervisor, 一个专门用来管理进程的工具，我们用它来管理 uwsgi 进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install supervisor</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/blog/2019/07/10/Django教程/" title="mysql数据库创建流水号" target="_blank" rel="external">http://yoursite.com/blog/2019/07/10/Django教程/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2019/07/16/hello-world/" title="Hello World1"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2018/08/01/qq聊天机器人/" title="qq聊天机器人"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
