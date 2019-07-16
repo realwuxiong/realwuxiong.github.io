@@ -1,10 +1,308 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
 
-block content
-  article#post
-    a.article-title= page.title || 'No Title'
-    time.article-date #[i(class="fa fa-calendar" aria-hidden="true")] !{date(page.date, config.date_format)}
-    != page.content
-  include includes/pagination.pug
+  
+  <title>mysql数据库创建流水号 | 吴雄的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta name="keywords" content="Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库创建流水号">
+<meta property="og:url" content="http://yoursite.com/blog/2019/07/10/Django教程/index.html">
+<meta property="og:site_name" content="吴雄的博客">
+<meta property="og:description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://moustache.oss-cn-beijing.aliyuncs.com/home.png">
+<meta property="og:updated_time" content="2019-07-16T03:07:47.759Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql数据库创建流水号">
+<meta name="twitter:description" content="Django文档时间2019-7-10Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）  创建项目  1django-admin startproject mysite  其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。  数据库的设计 首页 1轮播图表 （添加的时间">
+<meta name="twitter:image" content="https://moustache.oss-cn-beijing.aliyuncs.com/home.png">
+  
+    <link rel="alternate" href="/atom.xml" title="吴雄的博客" type="application/atom+xml">
   
   
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴雄的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Django教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/07/10/Django教程/" class="article-date">
+  <time datetime="2019-07-10T03:43:34.000Z" itemprop="datePublished">2019-07-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql数据库创建流水号
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Django文档"><a href="#Django文档" class="headerlink" title="Django文档"></a>Django文档</h1><h2 id="时间2019-7-10"><a href="#时间2019-7-10" class="headerlink" title="时间2019-7-10"></a>时间2019-7-10</h2><h3 id="Django版本2-2-3-python版本3-6-mysql版本5-7（低版本mysql可能会出现莫名其妙的错误）"><a href="#Django版本2-2-3-python版本3-6-mysql版本5-7（低版本mysql可能会出现莫名其妙的错误）" class="headerlink" title="Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）"></a>Django版本2.2.3 python版本3.6 mysql版本5.7（低版本mysql可能会出现莫名其妙的错误）</h3><hr>
+<ol>
+<li>创建项目</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject mysite</span><br></pre></td></tr></table></figure>
+
+<p>其中mysite是自己的项目名称（注意不要使用Django或者test为项目名称，这会与Django发生冲突）。</p>
+<p><img src="https://moustache.oss-cn-beijing.aliyuncs.com/home.png" alt="image"></p>
+<h3 id="数据库的设计"><a href="#数据库的设计" class="headerlink" title="数据库的设计"></a>数据库的设计</h3><hr>
+<p>首页</p>
+<p>1轮播图表 （添加的时间 按照添加时间优先显示）</p>
+<p>2博客文章 （文章之中有标签 分类 阅读量 发布时间 评论 和点赞数 点击量 推荐指数 置顶功能 作者 最近修改时间 markdown的文件名）</p>
+<p>3评论表</p>
+<p>4博主简介表</p>
+<p>5其他功能</p>
+<hr>
+<h3 id="创建app"><a href="#创建app" class="headerlink" title="创建app"></a>创建app</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. python manage.py startapp home </span><br><span class="line">2. python manage.py startapp arhive</span><br><span class="line">等等</span><br></pre></td></tr></table></figure>
+
+<p>以home这个app为例创建model.py文件</p>
+<h4 id="7月11日"><a href="#7月11日" class="headerlink" title="7月11日"></a>7月11日</h4><p>基本完成数据库和显示的问题</p>
+<h4 id="7月12日"><a href="#7月12日" class="headerlink" title="7月12日"></a>7月12日</h4><p>网页显示markdown</p>
+<ol>
+<li>安装markdown插件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install markdown</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>然后需要在models.py中对 阿里云对象存储的md文件进行解析</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line">from django.utils.html import mark_safe  # 将字符串标记为安全进行输出</span><br><span class="line">from markdown import markdown  # 导入 markdown 插件,将markdown格式转化为html</span><br><span class="line">import codecs</span><br><span class="line">from urllib import request</span><br><span class="line"></span><br><span class="line"> def markdownTohtml(self):</span><br><span class="line">        # 读取 markdown 文本</span><br><span class="line">        # input_file = codecs.open(self.markdown_url, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;)</span><br><span class="line">        text = request.urlopen(self.markdown_url).read().decode(&apos;utf8&apos;)  # 1 读取数据串</span><br><span class="line">        # text = input_file.read()</span><br><span class="line">        return mark_safe(markdown(text,extensions=[</span><br><span class="line">                                      &apos;markdown.extensions.extra&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.codehilite&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.toc&apos;,</span><br><span class="line">                                  ]))</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>html页面显示</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &#123;&#123; blogInfo.markdownTohtml&#125;&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>python+markdown+pygments代码块高亮<br>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pygments</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>运行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pygmentize -S default -f html -a .codehilite &gt; code.css</span><br></pre></td></tr></table></figure>
+
+<p>在文件夹下会发现生成了code.css文件，将这个css文件加入到你的static文件夹下csss里。在需要高亮的html文件里面导入刚刚生成的css文件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../static/css/code.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可去Github项目官方网址下载任意一css文件,记得文件内样式名开头都为 .codehilite, 如果不是修改过来。<a href="https://github.com/richleland/pygments-css" target="_blank" rel="noopener">pygments-css</a></p>
+<p>注意代码中需要加扩展（markDown转化为HTML的代码中加入)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mark_safe(markdown(text,extensions=[</span><br><span class="line">                                      &apos;markdown.extensions.extra&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.codehilite&apos;,</span><br><span class="line">                                      &apos;markdown.extensions.toc&apos;,</span><br><span class="line">                                  ]))</span><br></pre></td></tr></table></figure>
+
+<p>其实你<a href="https://github.com/richleland/pygments-css" target="_blank" rel="noopener">进入</a>可以看到有很多的样式文件<br>这样可以进一步理解代码：pygmentize -S default -f html -a .codehilite &gt; code.css<br>其实这个就是选择的default的那个文件 比如我选择autumn.css 那么代码就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pygmentize -S autumn -f html -a .codehilite &gt; code.css</span><br></pre></td></tr></table></figure>
+
+<h3 id="2019年7月13日-完成博客页面样式调试"><a href="#2019年7月13日-完成博客页面样式调试" class="headerlink" title="2019年7月13日 完成博客页面样式调试"></a>2019年7月13日 完成博客页面样式调试</h3><ol>
+<li>知道了li ul标签 inline inline-block block的区别</li>
+<li>css的选择器等等</li>
+<li>发布项目到阿里云服务器</li>
+</ol>
+<h3 id="2019年7月15日发布Django项目到阿里云服务器"><a href="#2019年7月15日发布Django项目到阿里云服务器" class="headerlink" title="2019年7月15日发布Django项目到阿里云服务器"></a>2019年7月15日发布Django项目到阿里云服务器</h3><ol>
+<li>我用的宝塔面板安装了Nginx </li>
+<li>安装uwsgi<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>安装 supervisor, 一个专门用来管理进程的工具，我们用它来管理 uwsgi 进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install supervisor</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/blog/2019/07/10/Django教程/" data-id="cjy5tjmra0001lcrthm7oduq9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/07/16/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/08/01/qq聊天机器人/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">qq聊天机器人</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的小程序/">我的小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/考研历程/">考研历程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/">QQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器人/">机器人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛概/">毛概</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/机器人/" style="font-size: 10px;">机器人</a> <a href="/tags/毛概/" style="font-size: 10px;">毛概</a> <a href="/tags/考研/" style="font-size: 10px;">考研</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/07/16/hello-world/">Hello World1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/07/10/Django教程/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/01/qq聊天机器人/">qq聊天机器人</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysql创建流水号/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysqlini文件详解/">mysql数据库my.ini配置文件中文详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wu xiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

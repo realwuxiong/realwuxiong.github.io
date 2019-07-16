@@ -1,10 +1,252 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
 
-block content
-  article#post
-    a.article-title= page.title || 'No Title'
-    time.article-date #[i(class="fa fa-calendar" aria-hidden="true")] !{date(page.date, config.date_format)}
-    != page.content
-  include includes/pagination.pug
+  
+  <title>qq聊天机器人 | 吴雄的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="qq聊天机器人第一步去申请一个图灵机器人。http://www.tuling123.com  我用的python的版本是是python3.6 两个代码放在同一个文件夹里。 需要导包啥的，可以直接在pycharm里面下载，我就不演示了，这里我直接贴上我的代码 每次运行的时候需要手机扫码登录，可以把代码运行在远程的服务器，就可以实现一天到晚QQ机器人都开着  tulingapi.py 12345678">
+<meta name="keywords" content="QQ,机器人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qq聊天机器人">
+<meta property="og:url" content="http://yoursite.com/blog/2018/08/01/qq聊天机器人/index.html">
+<meta property="og:site_name" content="吴雄的博客">
+<meta property="og:description" content="qq聊天机器人第一步去申请一个图灵机器人。http://www.tuling123.com  我用的python的版本是是python3.6 两个代码放在同一个文件夹里。 需要导包啥的，可以直接在pycharm里面下载，我就不演示了，这里我直接贴上我的代码 每次运行的时候需要手机扫码登录，可以把代码运行在远程的服务器，就可以实现一天到晚QQ机器人都开着  tulingapi.py 12345678">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-01T10:52:48.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qq聊天机器人">
+<meta name="twitter:description" content="qq聊天机器人第一步去申请一个图灵机器人。http://www.tuling123.com  我用的python的版本是是python3.6 两个代码放在同一个文件夹里。 需要导包啥的，可以直接在pycharm里面下载，我就不演示了，这里我直接贴上我的代码 每次运行的时候需要手机扫码登录，可以把代码运行在远程的服务器，就可以实现一天到晚QQ机器人都开着  tulingapi.py 12345678">
+  
+    <link rel="alternate" href="/atom.xml" title="吴雄的博客" type="application/atom+xml">
   
   
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴雄的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-qq聊天机器人" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/08/01/qq聊天机器人/" class="article-date">
+  <time datetime="2018-08-01T03:43:34.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/小程序/">小程序</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      qq聊天机器人
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="qq聊天机器人"><a href="#qq聊天机器人" class="headerlink" title="qq聊天机器人"></a>qq聊天机器人</h1><p>第一步去申请一个图灵机器人。<br><a href="http://www.tuling123.com" target="_blank" rel="noopener">http://www.tuling123.com</a></p>
+<ul>
+<li>我用的python的版本是是python3.6</li>
+<li>两个代码放在同一个文件夹里。</li>
+<li>需要导包啥的，可以直接在pycharm里面下载，我就不演示了，这里我直接贴上我的代码</li>
+<li>每次运行的时候需要手机扫码登录，可以把代码运行在远程的服务器，就可以实现一天到晚QQ机器人都开着</li>
+</ul>
+<p>tulingapi.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import json, urllib, urllib.parse, urllib.request</span><br><span class="line">header = &#123;</span><br><span class="line">    &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36&apos;,</span><br><span class="line">    &quot;Content-Type&quot;: &apos;text/html; charset=utf-8&apos;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main(text=&apos;哈哈哈&apos;,userid=&quot;123456&quot;):</span><br><span class="line">    # 配置您申请的APPKey</span><br><span class="line">    appkey = &quot;e75a3b457d4b48eabea084b1b1006a2a&quot;</span><br><span class="line"></span><br><span class="line">    # 1.问答</span><br><span class="line">    return request1(appkey, &quot;GET&quot;, text, userid)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 问答</span><br><span class="line">def request1(appkey, m=&quot;GET&quot;, text=&quot;哈哈&quot;, userid=&quot;123456&quot;):</span><br><span class="line">    url = &quot;http://www.tuling123.com/openapi/api&quot;</span><br><span class="line">    params = &#123;</span><br><span class="line">        &quot;key&quot;: appkey,  # 您申请到的本接口专用的APPKEY</span><br><span class="line">        &quot;info&quot;: text,  # 要发送给机器人的内容，不要超过30个字符</span><br><span class="line">        &quot;userid&quot;: userid   #自定义唯一 userid（1-32位，字母与数字组成）,可以识别上下文</span><br><span class="line">    &#125;</span><br><span class="line">    params = urllib.parse.urlencode(params)</span><br><span class="line">    if m == &quot;GET&quot;:</span><br><span class="line">        req = urllib.request.Request(&quot;%s?%s&quot; % (url, params), data=None, headers=header)</span><br><span class="line">        f = urllib.request.urlopen(req)</span><br><span class="line">    else:</span><br><span class="line">        req = urllib.request.Request(url + params, data=None, headers=header)</span><br><span class="line">        f = urllib.request.urlopen(req)</span><br><span class="line"></span><br><span class="line">    content = f.read().decode()</span><br><span class="line">    res = json.loads(content)</span><br><span class="line">    print(&quot;我的req是:  &quot;,end=&quot;  &quot;)</span><br><span class="line">    print(appkey, text)</span><br><span class="line">    print(&quot;我的返回结果&quot;, end=&quot;  :&quot;)</span><br><span class="line">    print(res)</span><br><span class="line">    if res:</span><br><span class="line">        error_code = res[&quot;code&quot;]</span><br><span class="line">        if error_code != 40001 and error_code != 40002:</span><br><span class="line">            # 成功请求</span><br><span class="line">            response = res[&apos;text&apos;]</span><br><span class="line">            if &apos;url&apos;in res:</span><br><span class="line">                response += &quot;\n&quot;+res[&apos;url&apos;]</span><br><span class="line">            if &apos;list&apos; in res:</span><br><span class="line">                for li in res[&apos;list&apos;]:</span><br><span class="line">                    if &quot;article&quot; in li:</span><br><span class="line">                        response += &quot;\n&quot;+li[&apos;article&apos;]</span><br><span class="line">                    if &quot;source&quot; in li:</span><br><span class="line">                        response += &quot;\n&quot;+li[&apos;source&apos;]</span><br><span class="line">                    if &quot;info&quot; in li:</span><br><span class="line">                        response += &quot;\n&quot; + li[&apos;info&apos;]</span><br><span class="line">                    if &quot;detailurl&quot; in li:</span><br><span class="line">                        response += &quot;\n&quot;+li[&apos;detailurl&apos;]</span><br><span class="line">                pass</span><br><span class="line">            return response</span><br><span class="line">        else:</span><br><span class="line">            err = json.dumps(res)</span><br><span class="line">            with open(&apos;log.txt&apos;, &apos;a+&apos;) as oo:</span><br><span class="line">                oo.write(err + &quot;\n\r&quot; + text)</span><br><span class="line">                # print (&quot;%s:%s&quot; % (res[&quot;error_code&quot;],res[&quot;reason&quot;]))</span><br><span class="line">            return &quot;我好像出错了$%$*%*&amp;^#$@#%$@#%&quot;</span><br><span class="line">    else:</span><br><span class="line">        return &quot;我的接口好像出错了，哈哈哈，创造我的人技术不行啊&quot;</span><br></pre></td></tr></table></figure>
+
+<p>第二个代码是<br>qq.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from qqbot import QQBotSlot as qqbotslot,RunBot</span><br><span class="line">import tulingapi</span><br><span class="line"></span><br><span class="line">#使用的python版本是python3.6</span><br><span class="line"># 初始化图灵机器人</span><br><span class="line">friend = []</span><br><span class="line"></span><br><span class="line">@qqbotslot</span><br><span class="line">def onQQMessage(bot, contact, member, content):</span><br><span class="line">    if contact.ctype == &apos;group&apos;:</span><br><span class="line">        pass</span><br><span class="line">    elif contact.ctype == &apos;buddy&apos; and &quot;--stop&quot; == content:</span><br><span class="line">        if contact.mark in friend:</span><br><span class="line">            friend.remove(contact.mark)</span><br><span class="line">            bot.SendTo(contact, &apos;关闭机器人&apos;)</span><br><span class="line">    elif contact.ctype == &apos;buddy&apos; and &quot;--start&quot; == content and &apos;哈哈，哈哈哈，哈哈哈哈哈&apos; != contact.mark:</span><br><span class="line">        if contact.mark not in friend:</span><br><span class="line">            friend.append(contact.mark)</span><br><span class="line">            bot.SendTo(contact, &apos;欢迎使用机器人&apos;)</span><br><span class="line">    elif contact.ctype == &apos;buddy&apos; and contact.mark in friend:                        #对指定的人发自动回复</span><br><span class="line">        daan = tulingapi.main(content)</span><br><span class="line">        bot.SendTo(contact, &apos;🍅&apos;+daan)</span><br><span class="line">        print(contact.name, contact.ctype, contact.nick, contact.uin, contact.mark)</span><br><span class="line">    elif &apos;mememeda&apos; == content:</span><br><span class="line">        print(&quot;关闭机器人&quot;)</span><br><span class="line">        bot.Stop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RunBot()</span><br></pre></td></tr></table></figure>
+
+<p>最后的效果是当QQ好友给你发一个–start的时候开启机器人然后就可以自动回复了（多个好友可以同时自动回复），当对方给你回一个–stop的时候就停止机器人聊天，当你对任何人或者任何人给你发送mememeda的时候把这个程序给彻底关掉。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/blog/2018/08/01/qq聊天机器人/" data-id="cjy5tjmrk0006lcrtkobr61oa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QQ/">QQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器人/">机器人</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/07/10/Django教程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql数据库创建流水号
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/07/02/mysql创建流水号/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql数据库创建流水号</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的小程序/">我的小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/考研历程/">考研历程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/">QQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器人/">机器人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛概/">毛概</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/机器人/" style="font-size: 10px;">机器人</a> <a href="/tags/毛概/" style="font-size: 10px;">毛概</a> <a href="/tags/考研/" style="font-size: 10px;">考研</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/07/16/hello-world/">Hello World1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/07/10/Django教程/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/01/qq聊天机器人/">qq聊天机器人</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysql创建流水号/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysqlini文件详解/">mysql数据库my.ini配置文件中文详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wu xiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

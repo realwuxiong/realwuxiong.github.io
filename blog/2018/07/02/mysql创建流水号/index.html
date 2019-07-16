@@ -1,10 +1,241 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
 
-block content
-  article#post
-    a.article-title= page.title || 'No Title'
-    time.article-date #[i(class="fa fa-calendar" aria-hidden="true")] !{date(page.date, config.date_format)}
-    != page.content
-  include includes/pagination.pug
+  
+  <title>mysql数据库创建流水号 | 吴雄的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mysql数据库创建流水号123456CREATE TRIGGER saledetail_id BEFORE INSERT ON saledetailFOR EACH ROW BEGINdeclare n int;select IFNULL(max(right(ItemID,4)),0) into n from saledetail where mid(ItemID,1,8)=DATE_FORMA">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库创建流水号">
+<meta property="og:url" content="http://yoursite.com/blog/2018/07/02/mysql创建流水号/index.html">
+<meta property="og:site_name" content="吴雄的博客">
+<meta property="og:description" content="mysql数据库创建流水号123456CREATE TRIGGER saledetail_id BEFORE INSERT ON saledetailFOR EACH ROW BEGINdeclare n int;select IFNULL(max(right(ItemID,4)),0) into n from saledetail where mid(ItemID,1,8)=DATE_FORMA">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-02T10:38:42.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql数据库创建流水号">
+<meta name="twitter:description" content="mysql数据库创建流水号123456CREATE TRIGGER saledetail_id BEFORE INSERT ON saledetailFOR EACH ROW BEGINdeclare n int;select IFNULL(max(right(ItemID,4)),0) into n from saledetail where mid(ItemID,1,8)=DATE_FORMA">
+  
+    <link rel="alternate" href="/atom.xml" title="吴雄的博客" type="application/atom+xml">
   
   
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴雄的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mysql创建流水号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/07/02/mysql创建流水号/" class="article-date">
+  <time datetime="2018-07-02T03:43:34.000Z" itemprop="datePublished">2018-07-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql数据库创建流水号
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mysql数据库创建流水号"><a href="#mysql数据库创建流水号" class="headerlink" title="mysql数据库创建流水号"></a>mysql数据库创建流水号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER saledetail_id BEFORE INSERT ON saledetail</span><br><span class="line">FOR EACH ROW BEGIN</span><br><span class="line">declare n int;</span><br><span class="line">select IFNULL(max(right(ItemID,4)),0) into n from saledetail where mid(ItemID,1,8)=DATE_FORMAT(CURDATE(),&apos;%Y%m%d&apos;);</span><br><span class="line">set NEW.ItemID=concat(DATE_FORMAT(CURDATE(),&apos;%Y%m%d&apos;),right(10001+n,4));</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<p>//注意在插入的时候主键要设置一个默认值才能插入进去，这里我设置的是空字符串””</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/blog/2018/07/02/mysql创建流水号/" data-id="cjy5tjmrj0005lcrtzf3de180" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/08/01/qq聊天机器人/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          qq聊天机器人
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2018/07/02/mysqlini文件详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql数据库my.ini配置文件中文详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的小程序/">我的小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/考研历程/">考研历程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/">QQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器人/">机器人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛概/">毛概</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/机器人/" style="font-size: 10px;">机器人</a> <a href="/tags/毛概/" style="font-size: 10px;">毛概</a> <a href="/tags/考研/" style="font-size: 10px;">考研</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/07/16/hello-world/">Hello World1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/07/10/Django教程/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/01/qq聊天机器人/">qq聊天机器人</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysql创建流水号/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysqlini文件详解/">mysql数据库my.ini配置文件中文详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wu xiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

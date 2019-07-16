@@ -1,10 +1,235 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
 
-block content
-  article#post
-    a.article-title= page.title || 'No Title'
-    time.article-date #[i(class="fa fa-calendar" aria-hidden="true")] !{date(page.date, config.date_format)}
-    != page.content
-  include includes/pagination.pug
+  
+  <title>抓取毛概的题库 | 吴雄的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="抓取毛概的题库1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001">
+<meta name="keywords" content="java,毛概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抓取毛概的题库">
+<meta property="og:url" content="http://yoursite.com/blog/2018/06/21/抓取毛概题库/index.html">
+<meta property="og:site_name" content="吴雄的博客">
+<meta property="og:description" content="抓取毛概的题库1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-02T04:39:05.041Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抓取毛概的题库">
+<meta name="twitter:description" content="抓取毛概的题库1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001">
+  
+    <link rel="alternate" href="/atom.xml" title="吴雄的博客" type="application/atom+xml">
   
   
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吴雄的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-抓取毛概题库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2018/06/21/抓取毛概题库/" class="article-date">
+  <time datetime="2018-06-21T03:43:34.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/我的小程序/">我的小程序</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      抓取毛概的题库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="抓取毛概的题库"><a href="#抓取毛概的题库" class="headerlink" title="抓取毛概的题库"></a>抓取毛概的题库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.net.URL;</span><br><span class="line">import java.net.URLConnection;</span><br><span class="line"></span><br><span class="line">import javax.xml.parsers.DocumentBuilder;</span><br><span class="line">import javax.xml.parsers.DocumentBuilderFactory;</span><br><span class="line">import javax.xml.parsers.ParserConfigurationException;</span><br><span class="line"></span><br><span class="line">import org.w3c.dom.Document;</span><br><span class="line">import org.w3c.dom.Element;</span><br><span class="line">import org.xml.sax.SAXException;</span><br><span class="line"></span><br><span class="line">import com.google.gson.JsonArray;</span><br><span class="line">import com.google.gson.JsonObject;</span><br><span class="line">import com.google.gson.JsonParser;</span><br><span class="line"></span><br><span class="line">//导入马克思的题库，完成时间20118年6月21日晚上九点</span><br><span class="line">public class Demo &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String url = &quot;http://211.67.48.87/wantsMWS/Question.asmx/GetQuestionList?CV=&amp;QStyleCode=DD&amp;QIDList=&quot;;</span><br><span class="line">		//PD是判断题，DX是单选，DD是多选</span><br><span class="line">		int i = 1;</span><br><span class="line">		while(i &lt; 100000) &#123;</span><br><span class="line">			url += String.valueOf(i)+&quot;&amp;ScreenType=1&quot;;</span><br><span class="line">			test(url,i);</span><br><span class="line">			i++;</span><br><span class="line">			url = &quot;http://211.67.48.87/wantsMWS/Question.asmx/GetQuestionList?CV=&amp;QStyleCode=DD&amp;QIDList=&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		  </span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	static int aaaa=1;</span><br><span class="line">	private static void test(String urls, int NO) &#123;</span><br><span class="line">		 InputStream is = null;</span><br><span class="line">		    Document document = null;</span><br><span class="line">		    try &#123;</span><br><span class="line">		      URL url =</span><br><span class="line">		          new URL(urls);//如&quot;http://211.67.48.87/wantsMWS/Question.asmx/GetQuestionList?CV=&amp;QStyleCode=DX&amp;QIDList=2158&amp;ScreenType=1&quot;</span><br><span class="line">		      URLConnection con = url.openConnection();</span><br><span class="line">		      is = con.getInputStream();</span><br><span class="line">		      // DOM 解析器</span><br><span class="line">		      DocumentBuilderFactory domfac = DocumentBuilderFactory.newInstance();</span><br><span class="line">		      // DOM 工厂获得 DOM 解析器</span><br><span class="line">		      DocumentBuilder dombuilder = domfac.newDocumentBuilder();</span><br><span class="line">		      document = dombuilder.parse(is);</span><br><span class="line"></span><br><span class="line">		    &#125; catch (SAXException e) &#123;</span><br><span class="line">		      e.printStackTrace();</span><br><span class="line">		    &#125; catch (ParserConfigurationException e) &#123;</span><br><span class="line">		      e.printStackTrace();</span><br><span class="line">		    &#125; catch (IOException e) &#123;</span><br><span class="line">		      e.printStackTrace();</span><br><span class="line"></span><br><span class="line">		    &#125;</span><br><span class="line">		    // root要素取得</span><br><span class="line">		    Element elementRoot = (document).getDocumentElement();</span><br><span class="line">		    JsonParser parser=new JsonParser();</span><br><span class="line">		    JsonObject object=(JsonObject)parser.parse(elementRoot.getTextContent().toString());</span><br><span class="line">		    JsonArray  QStyleList = object.get(&quot;List&quot;).getAsJsonArray();</span><br><span class="line">		    //------------------------写文件</span><br><span class="line">		    try</span><br><span class="line">		    &#123;</span><br><span class="line">		    String path=&quot;C:\\Users\\Administrator\\Desktop\\毛泽东.txt&quot;;</span><br><span class="line">		    File file=new File(path);</span><br><span class="line">		    if(!file.exists())</span><br><span class="line">		        file.createNewFile();</span><br><span class="line">		    FileOutputStream out=new FileOutputStream(file,true); //如果追加方式用true ,非追加用false    </span><br><span class="line">			for(int i = 0; i &lt; QStyleList.size(); ++i) &#123;</span><br><span class="line">				JsonObject item = QStyleList.get(i).getAsJsonObject();</span><br><span class="line">				String SubjectCode = item.get(&quot;SubjectCode&quot;).getAsString();		//试卷类型</span><br><span class="line">				String QStyleCode = item.get(&quot;QStyleCode&quot;).getAsString();		//题目类型</span><br><span class="line">				String QID = item.get(&quot;QID&quot;).getAsString();		//题目ID</span><br><span class="line">				String Topic = item.get(&quot;Topic&quot;).getAsString();		//题干</span><br><span class="line">				String IsRTF = item.get(&quot;IsRTF&quot;).getAsString();			//不知道是啥</span><br><span class="line">				JsonArray Option = item.get(&quot;OptionList&quot;).getAsJsonArray();</span><br><span class="line">				//写入文件</span><br><span class="line">				StringBuffer sb=new StringBuffer();</span><br><span class="line">			    sb.append(aaaa+&quot;.题干：&quot;+Topic+&quot;\r\n&quot;);</span><br><span class="line">			    System.out.println(SubjectCode);</span><br><span class="line">				System.out.println(&quot;题干：&quot;+Topic);</span><br><span class="line">				for(int j = 0; j &lt; Option.size(); ++j) &#123;</span><br><span class="line">					System.out.println(&quot;选项&quot;+j+&quot;: &quot;+Option.get(j).getAsString());</span><br><span class="line">					if(j==0)sb.append(&quot;A:&quot;+Option.get(j).getAsString()+&quot;\r\n&quot;);</span><br><span class="line">					if(j==1)sb.append(&quot;B:&quot;+Option.get(j).getAsString()+&quot;\r\n&quot;);</span><br><span class="line">					if(j==2)sb.append(&quot;C:&quot;+Option.get(j).getAsString()+&quot;\r\n&quot;);</span><br><span class="line">					if(j==3)sb.append(&quot;D:&quot;+Option.get(j).getAsString()+&quot;\r\n&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">				String OptionMax = item.get(&quot;OptionMax&quot;).getAsString();//最大的选项</span><br><span class="line">				String OptionType = item.get(&quot;OptionType&quot;).getAsString();	//选项的类型</span><br><span class="line">				String Result = item.get(&quot;Result&quot;).getAsString();	//答案</span><br><span class="line">				System.out.println(&quot;答案为：&quot;+Result);</span><br><span class="line">				</span><br><span class="line">			    sb.append(&quot;答案：&quot;+Result+&quot;\r\n&quot;);</span><br><span class="line">			    </span><br><span class="line">			    if(&quot;&quot;.equals(Topic)||Topic==null) &#123;</span><br><span class="line">			    	out.close();</span><br><span class="line">			    	System.exit(0);</span><br><span class="line">			    &#125;</span><br><span class="line">			    </span><br><span class="line">			    if(&quot;MZT&quot;.equals(SubjectCode)) &#123;</span><br><span class="line">			    	aaaa++;</span><br><span class="line">			    	out.write(sb.toString().getBytes(&quot;utf-8&quot;));//注意需要转换对应的字符集</span><br><span class="line">			    &#125;</span><br><span class="line">			    	</span><br><span class="line">			    </span><br><span class="line">			    		</span><br><span class="line">			&#125;</span><br><span class="line">			 out.close();</span><br><span class="line">		    &#125;</span><br><span class="line">		    catch(IOException ex)</span><br><span class="line">		    &#123;</span><br><span class="line">		        System.out.println(ex.getStackTrace());</span><br><span class="line">		    &#125;</span><br><span class="line">		    //----------------------------------写文件</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/blog/2018/06/21/抓取毛概题库/" data-id="cjy5tjmrm0009lcrtgym0egy2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/毛概/">毛概</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2018/06/25/2018-6-25/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          博客第一天
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的小程序/">我的小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/考研历程/">考研历程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QQ/">QQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器人/">机器人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毛概/">毛概</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/QQ/" style="font-size: 10px;">QQ</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/机器人/" style="font-size: 10px;">机器人</a> <a href="/tags/毛概/" style="font-size: 10px;">毛概</a> <a href="/tags/考研/" style="font-size: 10px;">考研</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/07/16/hello-world/">Hello World1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/07/10/Django教程/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/08/01/qq聊天机器人/">qq聊天机器人</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysql创建流水号/">mysql数据库创建流水号</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2018/07/02/mysqlini文件详解/">mysql数据库my.ini配置文件中文详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wu xiong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
